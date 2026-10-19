@@ -1,0 +1,261 @@
+/* ════════════════════════════════════════════════
+   CATS.CSS  —  All cat character styles
+   ════════════════════════════════════════════════ */
+
+/* ─── Generic cat wrapper ────────────────────────── */
+.cat-entity {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 10;
+  will-change: transform;
+  touch-action: manipulation;
+}
+
+/* ─── Cat SVG sizes ──────────────────────────────── */
+.cat-entity .cat-svg { width: 70px; height: auto; }
+
+@media (max-width: 480px) {
+  .cat-entity .cat-svg { width: 54px; }
+}
+
+/* ─── Running cat ────────────────────────────────── */
+.cat-entity.cat-run {
+  animation: catRun var(--run-dur, 8s) linear infinite var(--run-dir, normal);
+}
+
+@keyframes catRun {
+  0%   { transform: translateX(var(--start-x, -120px)) scaleX(var(--face, 1)); }
+  100% { transform: translateX(var(--end-x, 120vw))   scaleX(var(--face, 1)); }
+}
+
+/* ─── Walking cat ────────────────────────────────── */
+.cat-entity.cat-walk {
+  animation: catWalk var(--walk-dur, 14s) linear infinite var(--walk-dir, normal);
+}
+
+@keyframes catWalk {
+  0%   { transform: translateX(var(--start-x, -80px)) scaleX(var(--face, 1)); }
+  100% { transform: translateX(var(--end-x, 120vw))   scaleX(var(--face, 1)); }
+}
+
+/* ─── Dancing cat ────────────────────────────────── */
+.cat-entity.cat-dance {
+  animation: catDance var(--dance-dur, 0.8s) ease-in-out infinite alternate;
+}
+
+@keyframes catDance {
+  0%   { transform: translateY(0)    rotate(-8deg) scale(1); }
+  50%  { transform: translateY(-12px) rotate(0deg)  scale(1.05); }
+  100% { transform: translateY(0)    rotate(8deg)  scale(1); }
+}
+
+/* ─── Sleeping cat ────────────────────────────────── */
+.cat-entity.cat-sleep {
+  animation: catSleep 3s ease-in-out infinite;
+}
+
+@keyframes catSleep {
+  0%,100% { transform: scaleY(1) rotate(0deg); }
+  50%      { transform: scaleY(0.92) rotate(-2deg); }
+}
+
+/* ─── Stretching cat ─────────────────────────────── */
+.cat-entity.cat-stretch {
+  animation: catStretch 4s ease-in-out infinite;
+}
+
+@keyframes catStretch {
+  0%,100% { transform: scaleX(1) rotate(0deg); }
+  30%      { transform: scaleX(1.25) rotate(-5deg); }
+  60%      { transform: scaleX(0.85) rotate(5deg); }
+}
+
+/* ─── Bouncing cat ───────────────────────────────── */
+.cat-entity.cat-bounce {
+  animation: catBounce 0.6s cubic-bezier(0.34,1.56,0.64,1) infinite alternate;
+}
+
+@keyframes catBounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-18px); }
+}
+
+/* ─── Spinning cat ───────────────────────────────── */
+.cat-entity.cat-spin {
+  animation: catSpin 1.5s linear infinite;
+}
+
+@keyframes catSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Waving paw overlay (class added dynamically) ── */
+.cat-waving .paw-wave {
+  animation: pawWave 0.5s ease-in-out 4;
+  transform-origin: bottom center;
+}
+
+@keyframes pawWave {
+  0%,100% { transform: rotate(0deg); }
+  25%      { transform: rotate(25deg); }
+  75%      { transform: rotate(-10deg); }
+}
+
+/* ─── Butterfly chasing ──────────────────────────── */
+.cat-entity.cat-chase {
+  animation: catChase var(--chase-dur, 10s) ease-in-out infinite;
+}
+
+@keyframes catChase {
+  0%         { transform: translateX(0) translateY(0) scaleX(1); }
+  20%        { transform: translateX(40px) translateY(-15px) scaleX(1); }
+  40%        { transform: translateX(80px) translateY(0) scaleX(1); }
+  60%        { transform: translateX(120px) translateY(-20px) scaleX(1); }
+  80%        { transform: translateX(80px) translateY(0) scaleX(-1); }
+  100%       { transform: translateX(0) translateY(0) scaleX(1); }
+}
+
+/* ─── Butterfly ──────────────────────────────────── */
+.butterfly {
+  position: absolute;
+  pointer-events: none;
+  z-index: 8;
+  animation: butterflyFly var(--fly-dur, 12s) ease-in-out infinite;
+}
+
+.butterfly-wings {
+  display: flex;
+  align-items: center;
+  animation: flapWings 0.3s ease-in-out infinite alternate;
+}
+
+.butterfly-wing {
+  width: 18px; height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff9eb5, #ce93d8);
+  opacity: 0.85;
+}
+
+.butterfly-wing:first-child  { transform: rotate(-20deg); }
+.butterfly-wing:last-child   { transform: rotate(20deg); }
+
+.butterfly-body {
+  width: 4px; height: 14px;
+  background: #7b5ea7;
+  border-radius: 4px;
+  margin: 0 2px;
+}
+
+@keyframes flapWings {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0.3); }
+}
+
+@keyframes butterflyFly {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(60px, -40px); }
+  50%  { transform: translate(120px, 10px); }
+  75%  { transform: translate(60px, -60px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ─── Yarn ball ──────────────────────────────────── */
+.yarn-ball {
+  position: absolute;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff9eb5, #f06292);
+  box-shadow: 0 2px 8px rgba(240,98,146,0.4);
+  pointer-events: none;
+  z-index: 6;
+  animation: yarnRoll 3s ease-in-out infinite alternate;
+}
+
+@keyframes yarnRoll {
+  from { transform: translateX(0) rotate(0deg); }
+  to   { transform: translateX(40px) rotate(360deg); }
+}
+
+/* ─── Tiny hearts trail ──────────────────────────── */
+.heart-trail {
+  position: absolute;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 12;
+  animation: heartTrail 1.5s ease-out forwards;
+}
+
+@keyframes heartTrail {
+  0%   { transform: translateY(0) scale(0); opacity: 1; }
+  50%  { transform: translateY(-30px) scale(1); opacity: 1; }
+  100% { transform: translateY(-60px) scale(0.5); opacity: 0; }
+}
+
+/* ─── Tiny jumping cat (transition) ─────────────── */
+.jump-cat {
+  position: absolute;
+  animation: jumpIn var(--jump-dur, 1.2s) cubic-bezier(0.34,1.56,0.64,1) both;
+  font-size: 2.5rem;
+}
+
+@keyframes jumpIn {
+  0%   { transform: translateY(100vh) scale(0) rotate(-30deg); opacity: 0; }
+  60%  { transform: translateY(var(--jump-y, 0)) scale(1.2) rotate(10deg); opacity: 1; }
+  100% { transform: translateY(var(--final-y, 0)) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ─── Cat colours ────────────────────────────────── */
+.cat-pink  { --cat-base:#f4c2c2; --cat-inner:#ff9eb5; --cat-eye:#2d1b69; }
+.cat-blue  { --cat-base:#c2d4f4; --cat-inner:#9eb5ff; --cat-eye:#1a3a69; }
+.cat-lav   { --cat-base:#e1c2f4; --cat-inner:#ce93d8; --cat-eye:#4a1a69; }
+.cat-cream { --cat-base:#f4e8c2; --cat-inner:#f0cc70; --cat-eye:#2d1b00; }
+.cat-peach { --cat-base:#f4c9a2; --cat-inner:#ff9966; --cat-eye:#2d1000; }
+.cat-mint  { --cat-base:#c2f4d8; --cat-inner:#66d9a0; --cat-eye:#006633; }
+
+/* ─── Paw print decorator ────────────────────────── */
+.paw-print {
+  position: absolute;
+  pointer-events: none;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: pawAppear 4s ease-in-out forwards;
+  z-index: 3;
+}
+
+@keyframes pawAppear {
+  0%        { opacity: 0; transform: scale(0) rotate(-30deg); }
+  15%       { opacity: 0.6; transform: scale(1) rotate(0deg); }
+  85%       { opacity: 0.4; }
+  100%      { opacity: 0; transform: scale(0.8) rotate(15deg); }
+}
+
+/* ─── Clicked cat bounce ─────────────────────────── */
+.cat-clicked {
+  animation: catClickedAnim 0.6s cubic-bezier(0.34,1.56,0.64,1) !important;
+}
+
+@keyframes catClickedAnim {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.35) rotate(10deg); }
+  60%  { transform: scale(0.9) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ─── Small cat SVG (letter corners) ────────────── */
+.small-cat-svg { width: 60px; height: auto; }
+
+/* ─── Scene dancing kittens ──────────────────────── */
+.dance-kitten {
+  position: absolute;
+  bottom: 0;
+  font-size: 2.2rem;
+  animation: danceKittenAnim 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes danceKittenAnim {
+  from { transform: translateY(0) rotate(-15deg) scale(1); }
+  to   { transform: translateY(-20px) rotate(15deg) scale(1.1); }
+}

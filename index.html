@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="A tiny magical world made just for my favourite person — filled with cats, love, and happiness." />
+  <meta name="theme-color" content="#f9a8d4" />
+  <title>A Little World Made Just for You 🐱💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cats.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  SECTION 1 · OPENING SCREEN               -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="opening-screen" class="screen active" aria-label="Opening surprise screen">
+
+    <!-- Background particles -->
+    <div id="bg-particles" aria-hidden="true"></div>
+
+    <!-- Floating clouds -->
+    <div class="cloud cloud-1" aria-hidden="true"></div>
+    <div class="cloud cloud-2" aria-hidden="true"></div>
+    <div class="cloud cloud-3" aria-hidden="true"></div>
+
+    <!-- Hero content -->
+    <div class="opening-hero">
+      <!-- Cat + Gift illustration -->
+      <div class="hero-illustration" aria-hidden="true">
+        <div class="gift-box" id="gift-box">
+          <div class="gift-lid" id="gift-lid">
+            <div class="gift-ribbon-h"></div>
+            <div class="gift-bow"></div>
+          </div>
+          <div class="gift-body">
+            <div class="gift-ribbon-v"></div>
+          </div>
+          <div class="gift-sparkles" id="gift-sparkles"></div>
+        </div>
+        <div class="opening-cat" id="opening-cat">
+          <div class="cat-svg-wrap">
+            <!-- SVG cat illustration (pure CSS/SVG) -->
+            <svg viewBox="0 0 120 130" class="cat-svg sitting-cat" xmlns="http://www.w3.org/2000/svg">
+              <!-- Body -->
+              <ellipse cx="60" cy="95" rx="32" ry="28" fill="#f4c2c2"/>
+              <!-- Head -->
+              <circle cx="60" cy="55" r="28" fill="#f4c2c2"/>
+              <!-- Ears -->
+              <polygon points="36,35 28,10 50,30" fill="#f4c2c2"/>
+              <polygon points="84,35 92,10 70,30" fill="#f4c2c2"/>
+              <polygon points="38,33 32,16 48,30" fill="#ff9eb5"/>
+              <polygon points="82,33 88,16 72,30" fill="#ff9eb5"/>
+              <!-- Eyes -->
+              <ellipse cx="50" cy="52" rx="6" ry="7" fill="#2d1b69"/>
+              <ellipse cx="70" cy="52" rx="6" ry="7" fill="#2d1b69"/>
+              <circle cx="52" cy="50" r="2" fill="white"/>
+              <circle cx="72" cy="50" r="2" fill="white"/>
+              <!-- Nose -->
+              <polygon points="60,61 57,64 63,64" fill="#ff9eb5"/>
+              <!-- Mouth -->
+              <path d="M57,64 Q60,68 63,64" fill="none" stroke="#2d1b69" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Whiskers -->
+              <line x1="30" y1="60" x2="52" y2="62" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+              <line x1="30" y1="65" x2="52" y2="65" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+              <line x1="68" y1="62" x2="90" y2="60" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+              <line x1="68" y1="65" x2="90" y2="65" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+              <!-- Paws -->
+              <ellipse cx="44" cy="120" rx="10" ry="7" fill="#f4c2c2"/>
+              <ellipse cx="76" cy="120" rx="10" ry="7" fill="#f4c2c2"/>
+              <!-- Tail -->
+              <path d="M92,105 Q115,90 110,118 Q105,128 92,120" fill="#f4c2c2"/>
+              <!-- Blush -->
+              <ellipse cx="45" cy="63" rx="7" ry="4" fill="#ff9eb5" opacity="0.5"/>
+              <ellipse cx="75" cy="63" rx="7" ry="4" fill="#ff9eb5" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="opening-text">
+        <h1 class="opening-title">Hey, My Favourite Person… 💗</h1>
+        <p class="opening-sub">I made a tiny little world just for your smile.</p>
+        <button id="open-gift-btn" class="open-btn" aria-label="Open your surprise gift">
+          <span class="btn-icon">🎁</span>
+          <span>Open Your Little Surprise</span>
+          <span class="btn-shimmer"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating decorations -->
+    <div class="float-decor" id="float-decor" aria-hidden="true"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  TRANSITION · CATS JUMPING IN             -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="transition-overlay" class="transition-overlay" aria-hidden="true">
+    <div class="sparkle-burst" id="sparkle-burst"></div>
+    <div class="jump-cats" id="jump-cats"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  SECTION 2 · CAT PARADISE                 -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="paradise-screen" class="screen" aria-label="Cat paradise">
+
+    <!-- Parallax sky -->
+    <div class="paradise-sky" aria-hidden="true">
+      <div class="sky-stars" id="sky-stars"></div>
+      <div class="sky-clouds" id="sky-clouds"></div>
+    </div>
+
+    <!-- Ground / meadow -->
+    <div class="paradise-ground" aria-hidden="true">
+      <div class="grass-blade" style="--d:0"></div>
+      <div class="grass-blade" style="--d:1"></div>
+      <div class="grass-blade" style="--d:2"></div>
+      <div class="grass-blade" style="--d:3"></div>
+      <div class="grass-blade" style="--d:4"></div>
+    </div>
+
+    <!-- Live cats layer -->
+    <div id="cats-layer" class="cats-layer" aria-label="Animated cats playing in the paradise" role="img"></div>
+
+    <!-- Floating confetti -->
+    <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+    <!-- Header banner -->
+    <div class="paradise-header">
+      <h2 class="paradise-title">🐈 Cat Paradise 🐈</h2>
+      <p class="paradise-sub">Click a kitty to say hello! 🐾</p>
+    </div>
+
+    <!-- Interactive Buttons -->
+    <div class="action-buttons" role="group" aria-label="Interactive happiness buttons">
+      <button id="btn-smile" class="action-btn btn-pink" aria-label="Send a smile burst">
+        <span>😊</span> Send Me a Smile
+      </button>
+      <button id="btn-more-cats" class="action-btn btn-lavender" aria-label="Spawn more cats">
+        <span>🐾</span> More Kitties!
+      </button>
+      <button id="btn-letter" class="action-btn btn-peach" aria-label="Read the heartfelt letter">
+        <span>💌</span> A Little Message
+      </button>
+    </div>
+
+    <!-- Music control -->
+    <div class="music-control" aria-label="Music player controls">
+      <button id="music-toggle" class="music-btn" aria-label="Play background music" aria-pressed="false">
+        <span id="music-icon">🎵</span>
+        <span id="music-label">Play Music</span>
+      </button>
+      <div class="music-viz" id="music-viz" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  MODAL · HEARTFELT LETTER                 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="letter-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Heartfelt letter" hidden>
+    <div class="letter-container">
+      <!-- Corner cats -->
+      <div class="letter-cat letter-cat-tl" aria-hidden="true">
+        <svg viewBox="0 0 60 65" xmlns="http://www.w3.org/2000/svg" class="small-cat-svg">
+          <ellipse cx="30" cy="48" rx="16" ry="14" fill="#f4c2c2"/>
+          <circle cx="30" cy="28" r="14" fill="#f4c2c2"/>
+          <polygon points="18,17 14,5 25,15" fill="#f4c2c2"/><polygon points="42,17 46,5 35,15" fill="#f4c2c2"/>
+          <polygon points="19,16 15,7 24,15" fill="#ff9eb5"/><polygon points="41,16 45,7 36,15" fill="#ff9eb5"/>
+          <ellipse cx="25" cy="27" rx="3" ry="3.5" fill="#2d1b69"/><ellipse cx="35" cy="27" rx="3" ry="3.5" fill="#2d1b69"/>
+          <circle cx="26" cy="25.5" r="1" fill="white"/><circle cx="36" cy="25.5" r="1" fill="white"/>
+          <polygon points="30,32 28.5,34 31.5,34" fill="#ff9eb5"/>
+          <ellipse cx="22" cy="32" rx="4" ry="2.5" fill="#ff9eb5" opacity="0.5"/>
+          <ellipse cx="38" cy="32" rx="4" ry="2.5" fill="#ff9eb5" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="letter-cat letter-cat-br" aria-hidden="true">
+        <svg viewBox="0 0 60 65" xmlns="http://www.w3.org/2000/svg" class="small-cat-svg" style="transform:scaleX(-1)">
+          <ellipse cx="30" cy="48" rx="16" ry="14" fill="#c2d4f4"/>
+          <circle cx="30" cy="28" r="14" fill="#c2d4f4"/>
+          <polygon points="18,17 14,5 25,15" fill="#c2d4f4"/><polygon points="42,17 46,5 35,15" fill="#c2d4f4"/>
+          <polygon points="19,16 15,7 24,15" fill="#9eb5ff"/><polygon points="41,16 45,7 36,15" fill="#9eb5ff"/>
+          <ellipse cx="25" cy="27" rx="3" ry="3.5" fill="#2d1b69"/><ellipse cx="35" cy="27" rx="3" ry="3.5" fill="#2d1b69"/>
+          <circle cx="26" cy="25.5" r="1" fill="white"/><circle cx="36" cy="25.5" r="1" fill="white"/>
+          <polygon points="30,32 28.5,34 31.5,34" fill="#9eb5ff"/>
+          <ellipse cx="22" cy="32" rx="4" ry="2.5" fill="#9eb5ff" opacity="0.5"/>
+          <ellipse cx="38" cy="32" rx="4" ry="2.5" fill="#9eb5ff" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <button class="letter-close" id="letter-close" aria-label="Close letter">✕</button>
+      <div class="letter-scroll">
+        <div class="letter-header">
+          <div class="letter-icon">💌</div>
+          <h3 class="letter-title">A Little Letter, Just for You</h3>
+        </div>
+        <div class="letter-body" id="letter-body" aria-live="polite"></div>
+        <div class="letter-footer" id="letter-footer" hidden>
+          <div class="letter-seal">💗</div>
+          <p class="letter-from">Made with all the love in the world 🐾</p>
+          <button id="letter-okay-btn" class="letter-okay-btn" hidden aria-label="Close letter">Okay 🐾</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  SECTION 3 · SPECIAL CAT ANIMATION        -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="special-scene" class="special-scene" hidden aria-label="Special cat scene">
+    <div class="scene-sky" aria-hidden="true">
+      <div id="scene-stars" class="scene-stars"></div>
+    </div>
+    <div class="scene-stage">
+      <!-- Two cats approaching each other -->
+      <div class="scene-cat scene-cat-left" id="scene-cat-left" aria-hidden="true">
+        <svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" class="cat-svg">
+          <ellipse cx="60" cy="95" rx="32" ry="28" fill="#f4c2c2"/>
+          <circle cx="60" cy="55" r="28" fill="#f4c2c2"/>
+          <polygon points="36,35 28,10 50,30" fill="#f4c2c2"/>
+          <polygon points="84,35 92,10 70,30" fill="#f4c2c2"/>
+          <polygon points="38,33 32,16 48,30" fill="#ff9eb5"/>
+          <polygon points="82,33 88,16 72,30" fill="#ff9eb5"/>
+          <ellipse cx="50" cy="52" rx="6" ry="7" fill="#2d1b69"/>
+          <ellipse cx="70" cy="52" rx="6" ry="7" fill="#2d1b69"/>
+          <circle cx="52" cy="50" r="2" fill="white"/>
+          <circle cx="72" cy="50" r="2" fill="white"/>
+          <polygon points="60,61 57,64 63,64" fill="#ff9eb5"/>
+          <path d="M57,64 Q60,68 63,64" fill="none" stroke="#2d1b69" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="30" y1="60" x2="52" y2="62" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <line x1="30" y1="65" x2="52" y2="65" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <line x1="68" y1="62" x2="90" y2="60" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <line x1="68" y1="65" x2="90" y2="65" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <!-- Flower in paw -->
+          <g class="flower-offer" transform="translate(75, 100)">
+            <circle cx="0" cy="0" r="5" fill="#ff6b9d"/>
+            <circle cx="-5" cy="-5" r="4" fill="#ff9eb5"/>
+            <circle cx="5" cy="-5" r="4" fill="#ffb3cc"/>
+            <circle cx="-5" cy="5" r="4" fill="#ff9eb5"/>
+            <circle cx="5" cy="5" r="4" fill="#ffb3cc"/>
+            <circle cx="0" cy="0" r="3" fill="#ffe066"/>
+            <line x1="0" y1="5" x2="0" y2="16" stroke="#4caf50" stroke-width="2"/>
+          </g>
+          <ellipse cx="44" cy="120" rx="10" ry="7" fill="#f4c2c2"/>
+          <ellipse cx="76" cy="120" rx="10" ry="7" fill="#f4c2c2"/>
+          <ellipse cx="45" cy="63" rx="7" ry="4" fill="#ff9eb5" opacity="0.5"/>
+          <ellipse cx="75" cy="63" rx="7" ry="4" fill="#ff9eb5" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <div class="scene-cat scene-cat-right" id="scene-cat-right" aria-hidden="true">
+        <svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg" class="cat-svg" style="transform:scaleX(-1)">
+          <ellipse cx="60" cy="95" rx="32" ry="28" fill="#c2d4f4"/>
+          <circle cx="60" cy="55" r="28" fill="#c2d4f4"/>
+          <polygon points="36,35 28,10 50,30" fill="#c2d4f4"/>
+          <polygon points="84,35 92,10 70,30" fill="#c2d4f4"/>
+          <polygon points="38,33 32,16 48,30" fill="#9eb5ff"/>
+          <polygon points="82,33 88,16 72,30" fill="#9eb5ff"/>
+          <ellipse cx="50" cy="52" rx="6" ry="7" fill="#2d1b69"/>
+          <ellipse cx="70" cy="52" rx="6" ry="7" fill="#2d1b69"/>
+          <circle cx="52" cy="50" r="2" fill="white"/>
+          <circle cx="72" cy="50" r="2" fill="white"/>
+          <polygon points="60,61 57,64 63,64" fill="#9eb5ff"/>
+          <path d="M57,64 Q60,68 63,64" fill="none" stroke="#2d1b69" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="30" y1="60" x2="52" y2="62" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <line x1="30" y1="65" x2="52" y2="65" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <line x1="68" y1="62" x2="90" y2="60" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <line x1="68" y1="65" x2="90" y2="65" stroke="#2d1b69" stroke-width="1" opacity="0.6"/>
+          <ellipse cx="44" cy="120" rx="10" ry="7" fill="#c2d4f4"/>
+          <ellipse cx="76" cy="120" rx="10" ry="7" fill="#c2d4f4"/>
+          <ellipse cx="45" cy="63" rx="7" ry="4" fill="#9eb5ff" opacity="0.5"/>
+          <ellipse cx="75" cy="63" rx="7" ry="4" fill="#9eb5ff" opacity="0.5"/>
+        </svg>
+      </div>
+
+      <!-- Dancing kittens around them -->
+      <div class="dance-kittens" id="dance-kittens" aria-hidden="true"></div>
+    </div>
+
+    <div class="scene-message" id="scene-message" hidden>
+      <p class="scene-text">Some little moments are made to be treasured. ✨</p>
+      <button id="scene-back-btn" class="scene-back-btn" aria-label="Go back to cat paradise">Back to Paradise 🐾</button>
+    </div>
+
+    <!-- Floating hearts around scene -->
+    <div class="scene-hearts" id="scene-hearts" aria-hidden="true"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  GLOBAL: HEART / SPARKLE BURST LAYER      -->
+  <!-- ══════════════════════════════════════════ -->
+  <div id="burst-layer" class="burst-layer" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!--  SCRIPTS                                  -->
+  <!-- ══════════════════════════════════════════ -->
+  <script src="js/utils.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/cats.js"></script>
+  <script src="js/letter.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
